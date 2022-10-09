@@ -1,0 +1,9 @@
+string move_group
+
+builtin_interfaces/Time stamp
+
+DoubleArray joint_positions
+
+float32 max_velocity_scaling
+
+float32 max_acceleration_scaling
