@@ -40,3 +40,12 @@ add_executable(sr80_hwi_node
 target_link_libraries(sr80_hwi_node ${catkin_LIBRARIES} /home/$ENV{USER}/ADS/build/libAdsLib.a)
 target_link_directories(sr80_hwi_node PUBLIC ${AdsLib_INCLUDE_DIRS})
 
+install(DIRECTORY launch/
+    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
+)
+
+install(DIRECTORY config/
+    DESTINATION
+    ${CATKIN_PACKAGE_SHARE_DESTINATION}/config
+)
+
