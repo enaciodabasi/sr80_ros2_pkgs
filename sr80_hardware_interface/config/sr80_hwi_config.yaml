@@ -1,0 +1,15 @@
+SR80:
+  hardware_interface:
+    joints:
+      -
+      -
+      -
+      -
+      -
+      -
+      -
+    loop_hz: 50
+
+ads_config:
+  remote_ipv4: ""
+  remote_net_id: ""
