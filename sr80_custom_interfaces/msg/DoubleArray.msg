@@ -1,1 +1,0 @@
-float64[] double_array

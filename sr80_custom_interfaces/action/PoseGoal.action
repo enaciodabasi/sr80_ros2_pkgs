@@ -1,8 +1,0 @@
-# Request: Custom PoseGoalRequest message
-PoseGoalRequest request
----
-# Result: Custom PoseGoalResult message
-PoseGoalResult result
----
-# Feedback: Custom PoseGoalFeedback message
-PoseGoalFeedback feedback
