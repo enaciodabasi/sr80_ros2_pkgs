@@ -92,7 +92,7 @@ bool ADS_Worker::writeToADS(std::size_t num_joints, const std::vector<double>& p
     try{
 
         AdsVariable<std::vector<double>> adsPosVar{*m_Route, "GVL.fGoalPos_Arm"};
-        AdsVariable<std::vector<double>> adsVelVar{*m_Route, "GVL.fGoalVelArm"};
+        AdsVariable<std::vector<double>> adsVelVar{*m_Route, "GVL.fGoalVel_Arm"};
 
         adsPosVar = pose;
         adsVelVar = vel;
