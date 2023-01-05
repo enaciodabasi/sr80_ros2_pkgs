@@ -1,3 +1,4 @@
+
 #include "../include/ads_worker.hpp"
 
 #include <boost/algorithm/string.hpp>
@@ -5,7 +6,11 @@
 ADS_Worker::ADS_Worker(const std::string& remote_ipv4, const std::string& remote_net_id)
 {
 
+    std::cout << "Created ADS Worker" << std::endl;
+
     auto ids = splitNetIdToIntegers(remote_net_id);
+    for(auto i : ids)
+        std::cout << i << std::endl;
     
     m_RemoteNetID = AmsNetId(
         ids[0],
@@ -37,7 +42,10 @@ ADS_Worker::ADS_Worker(const std::string& remote_ipv4, const std::string& remote
     *m_AdsActTimestamp = ros::Time::now().sec;
 
     AdsHalt = false;
+
     AdsTimeout = false;
+
+    
 }
 
 ADS_Worker::~ADS_Worker()

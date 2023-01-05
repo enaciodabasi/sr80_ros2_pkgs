@@ -25,7 +25,7 @@ namespace SR80
 
         m_PositionCommand.resize(m_NumJoints);
         m_VelocityCommand.resize(m_NumJoints);
-
+        m_AccelCommand.resize(m_NumJoints);
         for(std::size_t i = 0; i < m_NumJoints; i++)
         {
             hardware_interface::JointStateHandle tempJSH(
@@ -37,18 +37,25 @@ namespace SR80
 
             m_JointStateInterface.registerHandle(tempJSH);
 
-            hardware_interface::PosVelJointHandle posVelJointHandle(
+            hardware_interface::PosVelAccJointHandle posVelAccJointHandle(
                 tempJSH,
                 &m_PositionCommand.at(i),
-                &m_VelocityCommand.at(i)
+                &m_VelocityCommand.at(i),
+                &m_AccelCommand.at(i)
             );
 
-            m_PosVelJointInterface.registerHandle(posVelJointHandle);
+            //hardware_interface::PosVelJointHandle posVelJointHandle(
+            //    tempJSH,
+            //    &m_PositionCommand.at(i),
+            //    &m_VelocityCommand.at(i)
+            //);
+
+            m_PosVelAccJointInterface.registerHandle(posVelAccJointHandle);
 
         }
 
         this->registerInterface(&m_JointStateInterface);
-        this->registerInterface(&m_PosVelJointInterface);
+        this->registerInterface(&m_PosVelAccJointInterface);
 
         m_ControllerManager.reset(new controller_manager::ControllerManager(this, m_NodeHandle));
 
@@ -116,10 +123,10 @@ namespace SR80
     {
         m_ElapsedTime = ros::Duration(timer_event.current_real - timer_event.last_real);
 
-        this->read();
-
-        m_ControllerManager->update(timer_event.current_real, m_ElapsedTime);
-
+        //this->read();
+//
+        //m_ControllerManager->update(timer_event.current_real, m_ElapsedTime);
+//
         this->write(m_ElapsedTime);
         
         // Example of writing a single joint:

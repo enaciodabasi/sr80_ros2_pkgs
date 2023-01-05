@@ -6,6 +6,7 @@
 #include <hardware_interface/robot_hw.h>
 #include <hardware_interface/joint_state_interface.h>
 #include <hardware_interface/posvel_command_interface.h>
+#include <hardware_interface/posvelacc_command_interface.h>
 
 #include <iostream>
 
@@ -26,9 +27,11 @@ namespace SR80
 
         std::vector<double> m_PositionCommand;
         std::vector<double> m_VelocityCommand;
+        std::vector<double> m_AccelCommand;
 
         hardware_interface::JointStateInterface m_JointStateInterface;
-        hardware_interface::PosVelJointInterface m_PosVelJointInterface;
+        //hardware_interface::PosVelJointInterface m_PosVelJointInterface;
+        hardware_interface::PosVelAccJointInterface m_PosVelAccJointInterface;
 
     };
 
